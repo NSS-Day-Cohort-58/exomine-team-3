@@ -297,15 +297,12 @@ const database = {
 }]}
 
 
-export const getFacilities = () => { 
-        return database.facilities.map(f => ({...f}))
-}
     
 export const getColonies = () => {
         return database.colonies.map(colony => ({...colony}))
 }
     
-    export const getGovernors = () => {
+export const getGovernors = () => {
         return database.governors.map(governor => ({...governor}))
 }
     
