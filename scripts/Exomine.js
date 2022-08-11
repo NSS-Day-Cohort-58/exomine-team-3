@@ -30,8 +30,9 @@ export const Exomine = () => {
             </section>
             <section class="cartBox">
                 <h2>Space Cart</h2>
-                ${(cartBox())}
-                <button id="purchase">Purchase Mineral</button>
+                ${()}
+                
+                <button class="button-85" role="button">Purchase Mineral</button>
             </section>
         </article>
 
