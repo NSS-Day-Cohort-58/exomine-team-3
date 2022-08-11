@@ -296,14 +296,53 @@ const database = {
             quantity: 10,
 }]}
 
+    
+export const getColonies = () => {
+        return database.colonies.map(colony => ({...colony}))
+}
+    
+export const getGovernors = () => {
+        return database.governors.map(governor => ({...governor}))
+}
+    
+export const getMinerals = () => {
+        return database.minerals.map(mineral => ({...mineral}))
+}
+    
+export const getColonyMinerals = () => {
+        return database.colonyMinerals.map(mineral => ({...mineral}))
+}
+    
+export const getFacilityMineral = () => {
+        return database.facilityMineral.map(mineral => ({...mineral}))
+}
+    
+export const getCurrentTransientState = () => {
+        return database.transientState.map(state => ({...state}))
+}
+    
+    
+    
 export const setFacility = (facilityId) => {
-    database.transientState.selectedFacility = facilityId
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+        database.transientState.selectedFacility = facilityId
+        document.dispatchEvent( new CustomEvent("stateChanged") )
+}
+    
+export const setColony = (colonyId) => {
+        database.transientState.selectedColony = colonyId
+        document.dispatchEvent( new CustomEvent("stateChanged"))
+}
+    
+export const setGovernor = (governorId) => {
+        database.transientState.selectedGovernor = governorId
+        document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+    
+export const setMineral = (mineralId) => {
+        database.transientState.selectedMineral = mineralId
+        document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const getFacilities = () => {
-    return database.facilities.map(f => ({ ...f }))
-}
 
 export const purchaseMineral = () => {
 
@@ -311,4 +350,5 @@ export const purchaseMineral = () => {
     // application can re-render and update state
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
 
