@@ -1,3 +1,7 @@
+import { Governors } from "./governors.js"
+import { Facilities } from "./facilities.js"
+import { cartBox } from "./cart.js"
+
 export const Exomine = () => {
     return `
         <header class="header">
@@ -7,11 +11,11 @@ export const Exomine = () => {
             <section class="choicesBox">
                 <div>
                     <h2>Choose Governor</h2>
-                    ${()}
+                    ${Governors()}
                 </div>
                 <div>
                     <h2>Choose Facility</h2>
-                    ${()}
+                    ${Facilities()}
                 </div>
             </section>
             <section class="colonyInventoryBox">
@@ -26,7 +30,7 @@ export const Exomine = () => {
             </section>
             <section class="cartBox">
                 <h2>Space Cart</h2>
-                ${()}
+                ${cartBox()}
                 
                 <button class="button-85" role="button">Purchase Mineral</button>
             </section>
