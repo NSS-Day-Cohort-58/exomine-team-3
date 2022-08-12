@@ -2,6 +2,10 @@ body {
     margin: 0 auto;
     padding: 0 auto;
     box-sizing: border-box;
+    background-color: black;
+    background-image: url(https://www.wallpapertip.com/wmimgs/45-450244_earth-horizon-from-space.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -16,8 +20,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Patua One", serif;
+    font-family: 'Roboto';
     letter-spacing: 2px;
+    color: white;
 }
 /* 
 =========
@@ -27,7 +32,18 @@ h6 {
 .header {
     display: flex;
     justify-content: center;
-    background-color: grey;
+    /* border: 2px solid red; */
+}
+
+.title {
+    font-family: 'Open Sans';
+    font-size: 3rem;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 /* 
@@ -40,9 +56,9 @@ h6 {
     border: solid red 2px;
     height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-
 }
 
 /* 
@@ -55,40 +71,63 @@ h6 {
     display: grid;
     grid-template-rows: 1;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
+    justify-content: space-between;
+    column-gap: 20rem;
     row-gap: 2rem;
     /* margin-top: 3rem; */
     /* margin-bottom: 5rem;  */
     padding-left: 2rem;
     padding-right: 4rem;
     align-content: center;
-    border: 2px solid blue;
+    background-color: rgba(17, 17, 17, 0.492);
+    /* border: 2px solid blue; */
+}
+
+.govBox {
+    color: white;
+}
+
+.facBox {
+    color: white;
+}
+
+.colonyInventoryBox {
+    color: white; 
+}
+
+.colonyInventoryBox ul {
+    color: white;
+    list-style-type: none;
 }
 
 /* 
-==========
+=============
 * BOTTOM BOX
-==========
+=============
 */
 
 .bottomBox {
     display: grid;
     grid-template-rows: 1 1fr;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
+    column-gap: 20rem;
     row-gap: 2rem;
     /* margin-top: 3rem; */
     /* margin-bottom: 5rem;  */
     padding-left: 2rem;
     padding-right: 4rem;
-    align-content: center;
-    border: 2px solid orange;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    /* align-content: center; */
+    justify-content: space-between;
+    background-color: rgba(17, 17, 17, 0.492);
+    /* border: 2px solid orange; */
 }
 
 /* 
-==========
-* BUTTON 
-==========
+=========================
+* PURCHASE MINERAL BUTTON 
+=========================
 */
 
 .button-85 {

@@ -7,7 +7,7 @@ import { CMfinalList } from "./colonyMinerals.js"
 export const Exomine = () => {
     return `
         <header class="header">
-            <h1 class="title"></h1>
+            <h1 class="title">Solar System Mining Marketplace</h1>
         </header>
         <article class="topBox">
             <section class="choicesBox">
