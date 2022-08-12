@@ -1,6 +1,7 @@
-import { getFacilities } from "./database.js"
+import { getFacilities } from './database.js';
 
 export const Facilities = () => {
+
     let facilities = getFacilities()
     let html = ""
     html += `<fieldset class="facBox">`
@@ -14,4 +15,3 @@ export const Facilities = () => {
     html += `</fieldset>`
     return html
 }
-
