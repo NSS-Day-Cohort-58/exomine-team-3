@@ -16,14 +16,14 @@ const colonyMineralList = (colonyId) => {
 let list = colonyMineralList(colonyId)
 
 const MineralList = (array) => {
-    let minerals = []
+    let arrayOfMinerals = []
     for (let each of array) {
         for (let mineral of minerals) {
             if (each.mineralId === mineral.id) {
-                minerals.push(mineral.name)
+                arrayOfMinerals.push(mineral.name)
             }
         }
-    } return minerals
+    } return arrayOfMinerals
 }
 
 let newList = MineralList(list)

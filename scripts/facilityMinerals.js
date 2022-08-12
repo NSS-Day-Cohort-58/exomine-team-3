@@ -1,7 +1,7 @@
 import { getFacilityMinerals } from "./database.js"
 import { getMinerals } from "./database.js"
 
-const facilityMinerals = getFacilitiyMinerals()
+const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
 const facilityMineralList = (facilityId) => {
@@ -16,14 +16,14 @@ const facilityMineralList = (facilityId) => {
 let FMlist = facilityMineralList(facilityId)
 
 const FMineralList = (array) => {
-    let minerals = []
+    let arrayOfMinerals = []
     for (let each of array) {
         for (let mineral of minerals) {
             if (each.mineralId === mineral.id) {
-                minerals.push(`${each.quantity} tons of ${mineral.name}`)
+                arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
-    } return minerals
+    } return arrayOfMinerals
 }
 
 let FMnewList = FMineralList(FMlist)
