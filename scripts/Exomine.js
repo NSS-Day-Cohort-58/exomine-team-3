@@ -33,7 +33,7 @@ export const Exomine = () => {
                 ${facilityMineralList(transientState.selectedFacility)}
             </section>
             <section class="cartBox">
-                <h2>Space Cart</h2>
+                <h2 id="cart-title">Space Cart</h2>
                 ${cartBox()}
                 
                 <button class="button-85" role="button">Purchase Mineral</button>
