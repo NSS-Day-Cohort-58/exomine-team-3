@@ -1,4 +1,4 @@
-import { getFacilities } from './database.js';
+import { getFacilities, setFacility } from './database.js';
 
 export const Facilities = () => {
 
@@ -8,10 +8,17 @@ export const Facilities = () => {
     html += `<label>Which Facility?</label>`
     html += `<select>`
     for (let facility of facilities) {
-        html += `<option name="facility">${facility.name}</option>`
+        html += `<option name="facility" value="${facility.id}">${facility.name}</option>`
 
     }
     html += `</select>`
     html += `</fieldset>`
     return html
 }
+
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setFacility(parseInt(event.target.value))
+    }
+})

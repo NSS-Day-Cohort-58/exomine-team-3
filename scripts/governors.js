@@ -7,7 +7,7 @@ export const Governors = () => {
     html += `<label>Who are you?</label>`
     html += `<select>`
     for (let governor of governors) {
-        html += `<option name="governor">${governor.name}</option>`
+        html += `<option name="governor" value="${governor.colonyId}">${governor.name}</option>`
 
     }
     html += `</select>`
@@ -17,7 +17,7 @@ export const Governors = () => {
 
 document.addEventListener("change", (event) => {
     if (event.target.name === "governor") {
-        setColony(parseInt(event.target.id))
+        setColony(parseInt(event.target.value))
     }
 })
 
