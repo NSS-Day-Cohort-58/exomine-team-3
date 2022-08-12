@@ -24,6 +24,10 @@ h6 {
     letter-spacing: 2px;
     color: white;
 }
+
+h2 {
+    text-shadow: 2px 3px 3px black;
+}
 /* 
 =========
 * HEADER
@@ -53,12 +57,12 @@ h6 {
 */
 
 #container {
-    border: solid red 2px;
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    /* border: solid red 2px; */
 }
 
 /* 
@@ -84,12 +88,23 @@ h6 {
 }
 
 .govBox {
+    display: flex;
+    justify-content: space-evenly;
     color: white;
+    
 }
 
 .facBox {
+    display: flex;
+    justify-content: space-evenly;
     color: white;
 }
+
+select {
+    margin-left: 1rem;
+}
+
+
 
 .colonyInventoryBox {
     color: white; 
