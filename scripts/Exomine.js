@@ -1,7 +1,7 @@
 import { Governors } from "./governors.js"
 import { Facilities } from "./facilities.js"
 import { cartBox } from "./cart.js"
-import { finalList } from "./colonyMinerals.js"
+import { finalFMList } from "./facilityMinerals.js"
 import { CMfinalList } from "./colonyMinerals.js"
 
 export const Exomine = () => {
@@ -28,7 +28,7 @@ export const Exomine = () => {
         <article class="bottomBox">
             <section class="facilityMineralBox">
                 <h2>Facility Minerals for Sale</h2>
-                ${(finalList)}
+                ${(finalFMList)}
             </section>
             <section class="cartBox">
                 <h2>Space Cart</h2>
