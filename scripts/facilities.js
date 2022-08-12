@@ -17,8 +17,3 @@ export const Facilities = () => {
 }
 
 
-document.addEventListener("change", (event) => {
-    if (event.target.name === "facility") {
-        setFacility(parseInt(event.target.value))
-    }
-})

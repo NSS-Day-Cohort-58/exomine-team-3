@@ -1,9 +1,16 @@
-import { getFacilityMinerals } from './database.js';
+import { getFacilityMinerals, setFacilityId } from './database.js';
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setFacilityId(parseInt(event.target.value))
+    }
+})
+
+let facilityId = null
 const facilityMineralList = (facilityId) => {
     let array = []
     for (let each of facilityMinerals) {
