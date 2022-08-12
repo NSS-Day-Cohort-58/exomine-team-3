@@ -37,4 +37,4 @@ const htmlForMinerals = (array) => {
     return html
 }
 
-export const finalList = htmlForMinerals(newList)
+export const CMfinalList = htmlForMinerals(newList)
