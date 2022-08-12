@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { getFacilityMinerals } from "./database.js"
-=======
 import { getFacilityMinerals, setFacilityId } from './database.js';
->>>>>>> ce5a3a9a5c05e7e0b6fa7863c365513ac161bada
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()

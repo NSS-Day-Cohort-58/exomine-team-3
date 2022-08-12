@@ -11,7 +11,7 @@ import { getMinerals } from "./database.js"
 const colonyMinerals = getColonyMinerals()
 const minerals = getMinerals()
 
-let colonyId = 1
+let colonyId = null
 document.addEventListener("change", (event) => {
     if (event.target.name === "governor") {
         setColonyId(parseInt(event.target.value))

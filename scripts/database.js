@@ -349,13 +349,15 @@ export const setColony = (colonyId) => {
 }
 
 export const setColonyId = (id) => {
-    colonyId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    let colonyId = id
+    const mainContainer = document.querySelector("#container")
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setFacilityId = (id) => {
-    facilityId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    let facilityId = id
+    const mainContainer = document.querySelector("#container")
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setGovernor = (governorId) => {
