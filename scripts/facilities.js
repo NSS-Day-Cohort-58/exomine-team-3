@@ -7,7 +7,7 @@ export const Facilities = () => {
     html += `<label>Which Facility?</label>`
     html += `<select>`
     for (let facility of facilities) {
-        html += `<option>${facility.name}</option>`
+        html += `<option name="facility">${facility.name}</option>`
 
     }
     html += `</select>`

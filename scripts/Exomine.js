@@ -20,13 +20,13 @@ export const Exomine = () => {
             </section>
             <section class="colonyInventoryBox">
                 <h2>Colony Mineral Inventory</h2>
-                ${()}
+                ${}
             </section>
         </article>
         <article class="bottomBox">
             <section class="facilityMineralBox">
                 <h2>Facility Minerals for Sale</h2>
-                ${()}
+                ${}
             </section>
             <section class="cartBox">
                 <h2>Space Cart</h2>

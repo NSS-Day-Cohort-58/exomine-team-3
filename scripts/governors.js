@@ -1,4 +1,4 @@
-import { getGovernors } from "./database.js"
+import { getGovernors,setColony } from "./database.js"
 
 export const Governors = () => {
     let governors = getGovernors()
@@ -7,11 +7,17 @@ export const Governors = () => {
     html += `<label>Who are you?</label>`
     html += `<select>`
     for (let governor of governors) {
-        html += `<option>${governor.name}</option>`
+        html += `<option name="governor">${governor.name}</option>`
 
     }
     html += `</select>`
     html += `</fieldset>`
     return html
 }
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setColony(parseInt(event.target.id))
+    }
+})
 
