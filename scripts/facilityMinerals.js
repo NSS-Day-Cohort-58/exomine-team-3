@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 import { getFacilityMinerals } from "./database.js"
+=======
+import { getFacilityMinerals, setFacilityId } from './database.js';
+>>>>>>> ce5a3a9a5c05e7e0b6fa7863c365513ac161bada
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
+
+let facilityId = null
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setFacilityId(parseInt(event.target.value))
+    }
+})
 
 const facilityMineralList = (facilityId) => {
     let array = []
@@ -37,4 +48,6 @@ const htmlForFacilityMinerals = (array) => {
     return html
 }
 
+
 export const finalFMList = htmlForFacilityMinerals(FMnewList)
+
