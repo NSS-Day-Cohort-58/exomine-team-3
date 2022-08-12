@@ -9,7 +9,7 @@ const renderAllHTML = () => {
 renderAllHTML()
 
 
-mainContainer.addEventListener(
+document.addEventListener(
     "stateChanged",
     customEvent => {
         renderAllHTML()

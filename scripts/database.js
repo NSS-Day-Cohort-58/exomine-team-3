@@ -348,18 +348,6 @@ export const setColony = (colonyId) => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const setColonyId = (id) => {
-    let colonyId = id
-    const mainContainer = document.querySelector("#container")
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-}
-
-export const setFacilityId = (id) => {
-    let facilityId = id
-    const mainContainer = document.querySelector("#container")
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-}
-
 export const setGovernor = (governorId) => {
     database.transientState.selectedGovernor = governorId
     document.dispatchEvent(new CustomEvent("stateChanged"))
@@ -393,3 +381,28 @@ export const purchaseMineral = () => {
 
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setMineral(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setFacility(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setColony(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setGovernor(parseInt(event.target.value))
+    }
+})

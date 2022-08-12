@@ -1,32 +1,20 @@
-import { getFacilityMinerals, setMineral, setFacilityId } from './database.js';
+import { getFacilityMinerals } from './database.js';
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
-let facilityId = null
-document.addEventListener("change", (event) => {
-    if (event.target.name === "facility") {
-        setFacilityId(parseInt(event.target.value))
-    }
-})
 
-document.addEventListener("change", (event) => {
-    if (event.target.name === "facility") {
-        setMineral(parseInt(event.target.value))
-    }
-})
 
-const facilityMineralList = (facilityId) => {
+export const facilityMineralList = (facilityId) => {
     let array = []
     for (let each of facilityMinerals) {
         if (facilityId === each.facilityId) {
             array.push(each)
         }
-    } return array
+    } return FMineralList(array)
 }
 
-let FMlist = facilityMineralList(facilityId)
 
 const FMineralList = (array) => {
     let arrayOfMinerals = []
@@ -36,10 +24,8 @@ const FMineralList = (array) => {
                 arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
-    } return arrayOfMinerals
+    } return htmlForFacilityMinerals(arrayOfMinerals)
 }
-
-let FMnewList = FMineralList(FMlist)
 
 const htmlForFacilityMinerals = (array) => {
     let html = `<ul>`
@@ -51,5 +37,4 @@ const htmlForFacilityMinerals = (array) => {
 }
 
 
-export const finalFMList = htmlForFacilityMinerals(FMnewList)
 

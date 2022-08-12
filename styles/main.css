@@ -28,6 +28,11 @@ h6 {
 h2 {
     text-shadow: 2px 3px 3px black;
 }
+
+li {
+    color: rgb(255, 255, 255)
+}
+
 /* 
 =========
 * HEADER
@@ -91,7 +96,7 @@ h2 {
     display: flex;
     justify-content: space-evenly;
     color: white;
-    
+
 }
 
 .facBox {
@@ -107,7 +112,7 @@ select {
 
 
 .colonyInventoryBox {
-    color: white; 
+    color: white;
 }
 
 .colonyInventoryBox ul {
