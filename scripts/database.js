@@ -92,7 +92,7 @@ const database = {
         id: 4,
         active: true,
         name: "Handsome Terrier",
-    }, {
+    }, {    
         id: 5,
         active: true,
         name: "UBA-12",
@@ -294,7 +294,8 @@ const database = {
         colonyId: 1,
         mineralId: 1,
         quantity: 10,
-    }]
+    }],
+    
 }
 
 /* 
@@ -349,12 +350,12 @@ export const setColony = (colonyId) => {
 }
 
 export const setColonyId = (id) => {
-    colonyId = id
+    let colonyId = id
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setFacilityId = (id) => {
-    facilityId = id
+    let facilityId = id
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
