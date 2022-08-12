@@ -41,13 +41,14 @@ h2 {
 
 .title {
     font-family: 'Open Sans';
-    font-size: 3rem;
+    font-size: 3.5rem;
     background: linear-gradient(45deg, #f3ec78, #af4261);
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
+    text-shadow: 2px  black;
 }
 
 /* 
@@ -75,13 +76,10 @@ h2 {
     display: grid;
     grid-template-rows: 1;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
+    justify-content: space-around;
     column-gap: 20rem;
     row-gap: 2rem;
-    /* margin-top: 3rem; */
-    /* margin-bottom: 5rem;  */
-    padding-left: 2rem;
-    padding-right: 4rem;
+    padding: 2rem 2.6rem;
     align-content: center;
     background-color: rgba(17, 17, 17, 0.492);
     /* border: 2px solid blue; */
@@ -127,6 +125,7 @@ select {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20rem;
     row-gap: 2rem;
+    justify-items: center;
     /* margin-top: 3rem; */
     /* margin-bottom: 5rem;  */
     padding-left: 2rem;
