@@ -45,7 +45,7 @@ const MineralList = (array) => {
     for (let each of array) {
         for (let mineral of minerals) {
             if (each.mineralId === mineral.id) {
-                arrayOfMinerals.push(mineral.name)
+                arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
     } return arrayOfMinerals

@@ -378,7 +378,18 @@ export const setMineral = (mineralId) => {
 */
 export const purchaseMineral = () => {
 
-    // Broadcast custom event to entire document so that the
-    // application can re-render and update state
+    const newOrder = { ...database.transientState }
+
+    const lastIndex = database.colonyMinerals.length - 1
+    newOrder.id = database.colonyMinerals[lastIndex].id + 1
+
+    newOrder.colonyId = transientState.colonyId
+    newOrder.mineralId = transientState.mineralId
+    newOrder.quantity = 1
+
+    database.colonyMinerals.push(newOrder)
+
+    database.transientState = {}
+
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }

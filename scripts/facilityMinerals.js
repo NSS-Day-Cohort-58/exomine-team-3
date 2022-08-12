@@ -1,4 +1,4 @@
-import { getFacilityMinerals, setFacilityId } from './database.js';
+import { getFacilityMinerals, setMineral, setFacilityId } from './database.js';
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()
@@ -8,6 +8,12 @@ let facilityId = null
 document.addEventListener("change", (event) => {
     if (event.target.name === "facility") {
         setFacilityId(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setMineral(parseInt(event.target.value))
     }
 })
 

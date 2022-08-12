@@ -16,4 +16,10 @@ export const Governors = () => {
 }
 
 
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setColony(parseInt(event.target.value))
+    }
+})
+
 
