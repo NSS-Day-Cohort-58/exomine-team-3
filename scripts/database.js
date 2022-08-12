@@ -165,7 +165,7 @@ const database = {
             name: "Sylvite",
         }],
 
-    facilityMineral: [
+    facilityMinerals: [
         {
             id: 1,
             facilityId: 1,
@@ -315,8 +315,8 @@ export const getColonyMinerals = () => {
     return database.colonyMinerals.map(mineral => ({ ...mineral }))
 }
 
-export const getFacilityMineral = () => {
-    return database.facilityMineral.map(mineral => ({ ...mineral }))
+export const getFacilityMinerals = () => {
+    return database.facilityMinerals.map(mineral => ({ ...mineral }))
 }
 
 export const getFacilities = () => {
