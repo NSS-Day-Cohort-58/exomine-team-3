@@ -1,5 +1,5 @@
 const database = {
-    transientState: [{}],
+    transientState: {},
     governors: [
         {
             id: 1,
