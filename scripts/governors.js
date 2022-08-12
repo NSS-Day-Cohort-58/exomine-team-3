@@ -1,4 +1,8 @@
+
 import { getGovernors, setGovernor } from "./database.js"
+import { getGovernors } from "./database.js"
+import { getCurrentTransientState } from "./database.js"
+
 
 let governors = getGovernors()
 
@@ -10,19 +14,24 @@ let governors = getGovernors()
 
 // })
 export const Governors = () => {
+    let transientState = getCurrentTransientState()
+    let governors = getGovernors()
     let html = ""
-    html += `<fieldset class="govBox">
-    <label>Who are you?</label>
-    <select name="governor">
-    <option value="0">Please select a governor</option>`
-    let listItems = governors.map(governor => {
-        return `<option value = "${governor.id}"> ${governor.name}</option>`
-    })
-    html+= listItems.join("")
-    html += `</select>
-    </fieldset>`
+    html += `<fieldset class="govBox">`
+    html += `<label>Who are you?</label>`
+    html += `<select name="governor">`
+    for (let governor of governors) {
+        if (transientState.selectedGovernor === governor.id) {
+            html += `<option name="governor" selected value="${governor.colonyId}">${governor.name}</option>`
+        } else { html += `<option name="governor"  value="${governor.colonyId}">${governor.name}</option>` }
+
+    }
+    html += `</select>`
+    html += `</fieldset>`
+
     return html
 }
+
 
 
 

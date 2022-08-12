@@ -349,6 +349,7 @@ export const setColony = (colonyId) => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+
 export const setColonyId = (id) => {
     let colonyId = id
     document.dispatchEvent(new CustomEvent("stateChanged"))
@@ -358,6 +359,7 @@ export const setFacilityId = (id) => {
     let facilityId = id
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
 
 export const setGovernor = (governorId) => {
     database.transientState.selectedGovernor = governorId
@@ -377,7 +379,43 @@ export const setMineral = (mineralId) => {
 */
 export const purchaseMineral = () => {
 
-    // Broadcast custom event to entire document so that the
-    // application can re-render and update state
+    const newOrder = { ...database.transientState }
+
+    const lastIndex = database.colonyMinerals.length - 1
+    newOrder.id = database.colonyMinerals[lastIndex].id + 1
+
+    newOrder.colonyId = transientState.colonyId
+    newOrder.mineralId = transientState.mineralId
+    newOrder.quantity = 1
+
+    database.colonyMinerals.push(newOrder)
+
+    database.transientState = {}
+
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setMineral(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "facility") {
+        setFacility(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setColony(parseInt(event.target.value))
+    }
+})
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === "governor") {
+        setGovernor(parseInt(event.target.value))
+    }
+})
