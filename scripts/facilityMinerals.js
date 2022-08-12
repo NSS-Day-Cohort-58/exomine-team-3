@@ -1,7 +1,7 @@
-import { getFacilitiyMinerals } from "./database.js"
+import { getFacilityMinerals } from './database.js';
 import { getMinerals } from "./database.js"
 
-const facilityMinerals = getFacilitiyMinerals()
+const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
 const facilityMineralList = (facilityId) => {
@@ -37,4 +37,4 @@ const htmlForFacilityMinerals = (array) => {
     return html
 }
 
-export const finaFMList = htmlForFacilityMinerals(FMnewList)
+export const finalFMList = htmlForFacilityMinerals(FMnewList)
