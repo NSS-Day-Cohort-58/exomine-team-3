@@ -1,4 +1,4 @@
-import { getGovernors } from "./database.js"
+import { getGovernors,setColony } from "./database.js"
 
 export const Governors = () => {
     let governors = getGovernors()
@@ -7,11 +7,13 @@ export const Governors = () => {
     html += `<label>Who are you?</label>`
     html += `<select>`
     for (let governor of governors) {
-        html += `<option>${governor.name}</option>`
+        html += `<option name="governor" value="${governor.colonyId}">${governor.name}</option>`
 
     }
     html += `</select>`
     html += `</fieldset>`
     return html
 }
+
+
 

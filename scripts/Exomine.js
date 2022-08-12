@@ -37,8 +37,5 @@ export const Exomine = () => {
                 <button class="button-85" role="button">Purchase Mineral</button>
             </section>
         </article>
-
-    
-
     `
 }
