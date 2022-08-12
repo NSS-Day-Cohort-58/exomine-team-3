@@ -1,6 +1,8 @@
 import { Governors } from "./governors.js"
 import { Facilities } from "./facilities.js"
 import { cartBox } from "./cart.js"
+import { finalList } from "./colonyMinerals.js"
+import { CMfinalList } from "./colonyMinerals.js"
 
 export const Exomine = () => {
     return `
@@ -20,13 +22,13 @@ export const Exomine = () => {
             </section>
             <section class="colonyInventoryBox">
                 <h2>Colony Mineral Inventory</h2>
-                
+                ${(CMfinalList)}
             </section>
         </article>
         <article class="bottomBox">
             <section class="facilityMineralBox">
                 <h2>Facility Minerals for Sale</h2>
-                
+                ${(finalList)}
             </section>
             <section class="cartBox">
                 <h2>Space Cart</h2>

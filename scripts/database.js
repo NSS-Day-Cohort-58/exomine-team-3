@@ -323,7 +323,7 @@ export const getFacilities = () => {
     return database.facilities.map(facility => ({ ...facility }))
 }
 export const getCurrentTransientState = () => {
-    return database.transientState.map(state => ({ ...state }))
+    return database.transientState
 }
 
 
