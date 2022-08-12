@@ -6,7 +6,7 @@ export const Facilities = () => {
     let html = ""
     html += `<fieldset class="facBox">`
     html += `<label>Which Facility?</label>`
-    html += `<select>`
+    html += `<select name="facility">`
     for (let facility of facilities) {
         html += `<option name="facility" value="${facility.id}">${facility.name}</option>`
 
