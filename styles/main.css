@@ -4,6 +4,12 @@ body {
     box-sizing: border-box;
 }
 
+
+/* 
+===========
+* HEADINGS
+===========
+*/
 h1,
 h2,
 h3,
@@ -14,9 +20,9 @@ h6 {
     letter-spacing: 2px;
 }
 /* 
-========
-HEADER
-========
+=========
+* HEADER
+=========
 */
 .header {
     display: flex;
@@ -25,9 +31,9 @@ HEADER
 }
 
 /* 
-==============
-MAIN CONTAINER
-==============
+=================
+* MAIN CONTAINER
+=================
 */
 
 #container {
@@ -40,9 +46,9 @@ MAIN CONTAINER
 }
 
 /* 
-=========
-TOP BOX
-=========
+==========
+* TOP BOX
+==========
 */
 
 .topBox {
@@ -61,7 +67,7 @@ TOP BOX
 
 /* 
 ==========
-BOTTOM BOX
+* BOTTOM BOX
 ==========
 */
 
