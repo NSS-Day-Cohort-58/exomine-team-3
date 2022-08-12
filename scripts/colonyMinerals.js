@@ -1,9 +1,22 @@
 import { getColonyMinerals } from "./database.js"
 import { getMinerals } from "./database.js"
 
+
+/* 
+===================
+* INVOKE FUNCTIONS
+===================
+*/
+
 const colonyMinerals = getColonyMinerals()
 const minerals = getMinerals()
 
+
+/* 
+======================
+* Colony Mineral List 
+======================
+*/
 const colonyMineralList = (colonyId) => {
     let array = []
     for (let each of colonyMinerals) {
@@ -15,6 +28,12 @@ const colonyMineralList = (colonyId) => {
 
 let list = colonyMineralList(colonyId)
 
+
+/* 
+===============
+* Mineral List 
+===============
+*/
 const MineralList = (array) => {
     let minerals = []
     for (let each of array) {
@@ -28,6 +47,12 @@ const MineralList = (array) => {
 
 let newList = MineralList(list)
 
+
+/* 
+====================
+* HTML for Minerals 
+====================
+*/
 const htmlForMinerals = (array) => {
     let html = `<ul>`
     for (let item of array) {

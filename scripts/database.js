@@ -297,7 +297,11 @@ const database = {
     }]
 }
 
-
+/* 
+===================
+* GETTER FUNCTIONS
+===================
+*/
 
 export const getColonies = () => {
     return database.colonies.map(colony => ({ ...colony }))
@@ -329,7 +333,11 @@ export const getCurrentTransientState = () => {
 
 
 
-
+/* 
+===================
+* SETTER FUNCTIONS
+===================
+*/
 export const setFacility = (facilityId) => {
     database.transientState.selectedFacility = facilityId
     document.dispatchEvent(new CustomEvent("stateChanged"))
@@ -351,9 +359,14 @@ export const setMineral = (mineralId) => {
 }
 
 
+/* 
+===============================
+* STATE CHANGE - RE-RENDER HTML
+===============================
+*/
 export const purchaseMineral = () => {
 
-    // Broadcast custom event to entire documement so that the
+    // Broadcast custom event to entire document so that the
     // application can re-render and update state
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
