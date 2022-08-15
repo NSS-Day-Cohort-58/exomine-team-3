@@ -44,7 +44,8 @@ const FMineralList = (array) => {
         }
     }
     return htmlForFacilityMinerals(arrayOfMinerals)
-}
+    }
+
 const htmlForFacilityMinerals = (array) => {
     let html = `<ul>`
     for (let item of array) {
