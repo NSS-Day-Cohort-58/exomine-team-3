@@ -49,4 +49,3 @@ const htmlForMinerals = (array) => {
     html += `</ul>`
     return html
 }
-

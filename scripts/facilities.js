@@ -20,4 +20,3 @@ export const Facilities = () => {
     return html
 }
 
-

@@ -296,6 +296,7 @@ const database = {
         mineralId: 1,
         quantity: 10,
     }],
+
 }
 
 /* 
@@ -329,10 +330,6 @@ export const getFacilities = () => {
 }
 export const getCurrentTransientState = () => {
     return database.transientState
-}
-
-export const getOrders = () => {
-    return database.customOrders.map(order => ({...order}))
 }
 
 
@@ -385,8 +382,8 @@ export const purchaseMineral = () => {
     let colonyMinerals = getColonyMinerals()
     const newOrder = { ...database.transientState }
 
-    const lastIndex = database.customOrders.length - 1
-    newOrder.id = database.customOrders[lastIndex].id + 1
+    const lastIndex = database.colonyMinerals.length - 1
+    newOrder.id = database.colonyMinerals[lastIndex].id + 1
 
     newOrder.colonyId = database.transientState.colonyId
     newOrder.mineralId = database.transientState.mineralId
@@ -433,6 +430,5 @@ document.addEventListener("change", (event) => {
         setGovernor(parseInt(event.target.value))
     }
 })
-
 
 
