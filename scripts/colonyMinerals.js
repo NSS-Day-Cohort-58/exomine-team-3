@@ -1,5 +1,4 @@
 import { getColonyMinerals, getGovernors, setGovernor} from "./database.js"
-import { getColonyMinerals } from "./database.js"
 import { getMinerals } from "./database.js"
 
 const colonyMinerals = getColonyMinerals()
