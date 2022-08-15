@@ -21,18 +21,25 @@ const FMineralList = (array) => {
     for (let each of array) {
         for (let mineral of minerals) {
             if (each.mineralId === mineral.id) {
-                arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
+                let emptyObject = {
+                    quantity: each.quantity,
+                    mineralName: mineral.name,
+                    mineralId: mineral.id
+                }
+                arrayOfMinerals.push(emptyObject)
             }
         }
-    } return htmlForFacilityMinerals(arrayOfMinerals)
+    }
+    return htmlForFacilityMinerals(arrayOfMinerals)
 }
-
 const htmlForFacilityMinerals = (array) => {
     let html = `<ul>`
     for (let item of array) {
-        html += `<li>${item}</li>`
+        html += `<li>
+        <input type="radio" name="mineralRadio" value=${item.mineralId}/>${item.quantity} of ${item.mineralName}
+        </li > `
     }
-    html += `</ul>`
+    html += `</ul > `
     return html
 }
 
