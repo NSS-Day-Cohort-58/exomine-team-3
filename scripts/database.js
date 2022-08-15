@@ -395,6 +395,11 @@ export const purchaseMineral = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+/* 
+====================
+* EVENT LISTENERS
+====================
+*/
 
 document.addEventListener("change", (event) => {
     if (event.target.name === "facility") {
