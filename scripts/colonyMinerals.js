@@ -15,8 +15,6 @@ document.addEventListener("change", (event) => {
     if (event.target.name === 'governor') {
         setGovernor(parseInt(event.target.value))
     }
-
-
 })
 
 export const colonyMineralList = (colonyId) => {
@@ -25,7 +23,8 @@ export const colonyMineralList = (colonyId) => {
         if (colonyId === each.colonyId) {
             array.push(each)
         }
-    } return MineralList(array)
+    } 
+    return MineralList(array)
 
 }
 
@@ -37,7 +36,8 @@ const MineralList = (array) => {
                 arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
-    } return htmlForMinerals(arrayOfMinerals)
+    } 
+    return htmlForMinerals(arrayOfMinerals)
 }
 
 
