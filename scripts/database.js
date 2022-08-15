@@ -39,7 +39,7 @@ const database = {
         }, {
             id: 8,
             name: "Leslie Knope",
-            active: true,
+            active: false,
             colonyId: 2
         }, {
             id: 9,
@@ -49,7 +49,7 @@ const database = {
         }, {
             id: 10,
             name: "Lil Sebastian",
-            active: true,
+            active: false,
             colonyId: 7
         }],
 
