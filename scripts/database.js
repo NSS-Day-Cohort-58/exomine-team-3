@@ -1,5 +1,6 @@
 const database = {
     transientState: {},
+    orders: {},
     governors: [
         {
             id: 1,
@@ -92,7 +93,7 @@ const database = {
         id: 4,
         active: true,
         name: "Handsome Terrier",
-    }, {    
+    }, {
         id: 5,
         active: true,
         name: "UBA-12",
@@ -295,13 +296,6 @@ const database = {
         mineralId: 1,
         quantity: 10,
     }],
-    customOrders: [
-        {
-            id: 1,
-            mineralId: 2
-        }
-    ]
-    
 }
 
 /* 
@@ -388,18 +382,24 @@ export const setMineral = (mineralId) => {
 ===============================
 */
 export const purchaseMineral = () => {
-
+    let colonyMinerals = getColonyMinerals()
     const newOrder = { ...database.transientState }
 
     const lastIndex = database.customOrders.length - 1
     newOrder.id = database.customOrders[lastIndex].id + 1
 
-    newOrder.quantity = 1
-    database.facilityMinerals.quanitity -1
-    database.colonyMinerals.quanitiy +1
-    database.customOrders.push(newOrder)
+    newOrder.colonyId = database.transientState.colonyId
+    newOrder.mineralId = database.transientState.mineralId
 
-    database.transientState = {}
+    for (let colonyMineral of colonyMinerals) {
+        if (newOrder.colonyId === colonyMineral.colonyId) {
+            colonyMineral.quantity++
+        } else {
+            newOrder.quantity = 1
+            database.colonyMinerals.push(newOrder)
+
+        }
+    }
 
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
@@ -411,7 +411,7 @@ export const purchaseMineral = () => {
 */
 
 document.addEventListener("change", (event) => {
-    if (event.target.name === "facility") {
+    if (event.target.name === "mineralRadio") {
         setMineral(parseInt(event.target.value))
     }
 })
@@ -433,3 +433,6 @@ document.addEventListener("change", (event) => {
         setGovernor(parseInt(event.target.value))
     }
 })
+
+
+

@@ -1,6 +1,7 @@
 import { Governors } from "./governors.js"
 import { Facilities } from "./facilities.js"
 import { Orders } from "./cart.js"
+import { buildCartItem } from "./cart.js"
 import { facilityMineralList } from "./facilityMinerals.js"
 import { colonyMineralList } from "./colonyMinerals.js"
 import { getCurrentTransientState } from "./database.js"
@@ -43,10 +44,16 @@ export const Exomine = () => {
             </section>
             <section class="cartBox">
                 <h2 id="cart-title">Space Cart</h2>
-                ${Orders()}
-                
+                ${buildCartItem()}
                 <button id="button-85" role="button">Purchase Mineral</button>
             </section>
         </article>
     `
 }
+
+document.addEventListener("click", (event) => {
+    const itemClicked = event.target
+    if (itemClicked.id === 'button-85') {
+        purchaseMineral()
+    }
+})

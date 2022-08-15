@@ -3,15 +3,6 @@ import { getGovernors, setGovernor } from "./database.js"
 import { getCurrentTransientState } from "./database.js"
 
 
-let governors = getGovernors()
-
-// document.addEventListener("change", (event) => {
-//     if (event.target.name === 'governor') {
-//         setGovernor(parseInt(event.target.value))
-//     }
-
-
-// })
 export const Governors = () => {
     let transientState = getCurrentTransientState()
     let governors = getGovernors()
