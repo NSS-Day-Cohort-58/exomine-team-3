@@ -5,6 +5,8 @@ const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
 let facilityId = null
+
+
 document.addEventListener("change", (event) => {
     if (event.target.name === "facility") {
         setFacilityId(parseInt(event.target.value))
@@ -17,7 +19,8 @@ const facilityMineralList = (facilityId) => {
         if (facilityId === each.facilityId) {
             array.push(each)
         }
-    } return array
+    } 
+    return array
 }
 
 let FMlist = facilityMineralList(facilityId)
@@ -30,7 +33,8 @@ const FMineralList = (array) => {
                 arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
-    } return arrayOfMinerals
+    } 
+    return arrayOfMinerals
 }
 
 let FMnewList = FMineralList(FMlist)
