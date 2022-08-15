@@ -295,6 +295,12 @@ const database = {
         mineralId: 1,
         quantity: 10,
     }],
+    customOrders: [
+        {
+            id: 1,
+            mineralId: 2
+        }
+    ]
     
 }
 
@@ -329,6 +335,10 @@ export const getFacilities = () => {
 }
 export const getCurrentTransientState = () => {
     return database.transientState
+}
+
+export const getOrders = () => {
+    return database.customOrders.map(order => ({...order}))
 }
 
 
@@ -381,14 +391,13 @@ export const purchaseMineral = () => {
 
     const newOrder = { ...database.transientState }
 
-    const lastIndex = database.colonyMinerals.length - 1
-    newOrder.id = database.colonyMinerals[lastIndex].id + 1
+    const lastIndex = database.customOrders.length - 1
+    newOrder.id = database.customOrders[lastIndex].id + 1
 
-    newOrder.colonyId = transientState.colonyId
-    newOrder.mineralId = transientState.mineralId
     newOrder.quantity = 1
-
-    database.colonyMinerals.push(newOrder)
+    database.facilityMinerals.quanitity -1
+    database.colonyMinerals.quanitiy +1
+    database.customOrders.push(newOrder)
 
     database.transientState = {}
 

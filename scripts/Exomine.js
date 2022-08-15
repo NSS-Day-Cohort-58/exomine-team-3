@@ -1,9 +1,18 @@
 import { Governors } from "./governors.js"
 import { Facilities } from "./facilities.js"
-import { cartBox } from "./cart.js"
+import { Orders } from "./cart.js"
 import { facilityMineralList } from "./facilityMinerals.js"
 import { colonyMineralList } from "./colonyMinerals.js"
 import { getCurrentTransientState } from "./database.js"
+import { purchaseMineral } from "./database.js"
+
+document.addEventListener("click", (event) =>{
+    const itemClicked = event.target
+    if (itemClicked.id === 'button-85') {
+        purchaseMineral()
+    }
+})
+
 
 export const Exomine = () => {
     let transientState = getCurrentTransientState()
@@ -30,13 +39,13 @@ export const Exomine = () => {
         <article class="bottomBox">
             <section class="facilityMineralBox">
                 <h2>Facility Minerals for Sale</h2>
-                ${facilityMineralList(transientState.selectedFacility)}
+                ${facilityMineralList}
             </section>
             <section class="cartBox">
                 <h2 id="cart-title">Space Cart</h2>
-                ${cartBox()}
+                ${Orders()}
                 
-                <button class="button-85" role="button">Purchase Mineral</button>
+                <button id="button-85" role="button">Purchase Mineral</button>
             </section>
         </article>
     `

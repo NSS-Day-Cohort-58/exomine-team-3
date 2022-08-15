@@ -1,40 +1,63 @@
-import { getFacilityMinerals } from './database.js';
+import { getFacilityMinerals, setMineral } from './database.js';
 import { getMinerals } from "./database.js"
 
 const facilityMinerals = getFacilityMinerals()
 const minerals = getMinerals()
 
-
-
-export const facilityMineralList = (facilityId) => {
-    let array = []
-    for (let each of facilityMinerals) {
-        if (facilityId === each.facilityId) {
-            array.push(each)
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "mineral") {
+            setMineral(parseInt(event.target.value))
         }
-    } return FMineralList(array)
-}
+    }
+)
 
 
-const FMineralList = (array) => {
-    let arrayOfMinerals = []
-    for (let each of array) {
-        for (let mineral of minerals) {
-            if (each.mineralId === mineral.id) {
-                arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
+export const facilityMineralList = () => {
+    let html = '<ul>'
+
+    for (let mineral of minerals) {
+        for (let facilityMin of facilityMinerals) {
+            if (facilityMin.id === mineral.id) {
+                html += `<li> <input type="radio" name="mineral" value = ${mineral.id}/> ${facilityMin.quantity} tons of ${mineral.name}</li>`
             }
         }
-    } return htmlForFacilityMinerals(arrayOfMinerals)
-}
-
-const htmlForFacilityMinerals = (array) => {
-    let html = `<ul>`
-    for (let item of array) {
-        html += `<li>${item}</li>`
     }
-    html += `</ul>`
+    html += '</ul>'
     return html
 }
+
+
+// export const facilityMineralList = (facilityId) => {
+//     let array = []
+//     for (let each of facilityMinerals) {
+//         if (facilityId === each.facilityId) {
+//             array.push(each)
+//         }
+//     } return FMineralList(array)
+// }
+
+
+// const FMineralList = (array) => {
+//     let arrayOfMinerals = []
+//     for (let each of array) {
+//         for (let mineral of minerals) {
+//             if (each.mineralId === mineral.id) {
+//                 arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
+//             }
+//         }
+//     } return htmlForFacilityMinerals(arrayOfMinerals)
+// }
+
+// const htmlForFacilityMinerals = (array) => {
+//     let html = `<ul>`
+//     for (let item of array) {
+//         html += `<li> <input type="radio" name="mineral" /> ${item}</li>`
+//     }
+//     html += `</ul>`
+//     return html
+// }
 
 
 
