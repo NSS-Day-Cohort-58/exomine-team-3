@@ -1,6 +1,7 @@
 import { getFacilities, setFacility, getCurrentTransientState} from './database.js';
 
 let transientState = getCurrentTransientState()
+
 export const Facilities = () => {
 
     let facilities = getFacilities()
