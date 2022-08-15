@@ -12,7 +12,8 @@ export const facilityMineralList = (facilityId) => {
         if (facilityId === each.facilityId) {
             array.push(each)
         }
-    } return FMineralList(array)
+    } 
+    return FMineralList(array)
 }
 
 
@@ -24,7 +25,8 @@ const FMineralList = (array) => {
                 arrayOfMinerals.push(`${each.quantity} tons of ${mineral.name}`)
             }
         }
-    } return htmlForFacilityMinerals(arrayOfMinerals)
+    } 
+    return htmlForFacilityMinerals(arrayOfMinerals)
 }
 
 const htmlForFacilityMinerals = (array) => {
