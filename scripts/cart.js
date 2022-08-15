@@ -28,5 +28,3 @@ export const buildCartItem = () => {
     } else {
         return `<li></li>`
     }
-}
->>>>>>> main
