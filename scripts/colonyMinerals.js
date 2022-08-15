@@ -1,10 +1,23 @@
-import { getColonyMinerals } from "./database.js"
+import { getColonyMinerals, getGovernors, setGovernor} from "./database.js"
 import { getMinerals } from "./database.js"
-
 
 const colonyMinerals = getColonyMinerals()
 const minerals = getMinerals()
+const governors = getGovernors()
 
+let colonyId = null
+for (let governor of governors) {
+    colonyId = governor.colonyId
+}
+
+
+document.addEventListener("change", (event) => {
+    if (event.target.name === 'governor') {
+        setGovernor(parseInt(event.target.value))
+    }
+
+
+})
 
 export const colonyMineralList = (colonyId) => {
     let array = []
