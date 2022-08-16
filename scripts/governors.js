@@ -10,6 +10,7 @@ export const Governors = () => {
     html += `<fieldset class="govBox">`
     html += `<label>Who are you?</label>`
     html += `<select name="governor">`
+    html+= `<option value="0">Please select a governor</option>`
     for (let governor of governors) {
         if (governor.active === true) {
         if (transientState.selectedGovernor === governor.id) {
@@ -22,7 +23,6 @@ export const Governors = () => {
 
     return html
 }
-
 
 
 

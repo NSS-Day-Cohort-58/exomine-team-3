@@ -9,6 +9,7 @@ export const Facilities = () => {
     html += `<fieldset class="facBox">`
     html += `<label>Which Facility?</label>`
     html += `<select name="facility">`
+    html+= `<option value="0">Please select a facility</option>`
     for (let facility of facilities) {
         if (facility.active === true){
         if (transientState.selectedFacility === facility.id) {
@@ -19,5 +20,4 @@ export const Facilities = () => {
     html += `</fieldset>`
     return html
 }
-
 
