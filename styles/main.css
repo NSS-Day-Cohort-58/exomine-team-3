@@ -155,6 +155,16 @@ select {
     text-align: center;
 }
 
+.facilityMineralBox li {
+    color: white;
+        list-style-type: none;
+}
+
+.cartBox li {
+    color: white;
+    list-style-type: none;
+}
+
 
 
 /* 
