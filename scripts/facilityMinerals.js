@@ -1,7 +1,7 @@
 import { getFacilityMinerals } from './database.js';
-import { getMinerals } from "./database.js"
+import { getMinerals,getCurrentTransientState } from "./database.js"
 
-
+let transientState = getCurrentTransientState()
 export const facilityMineralList = (facilityId) => {
     const facilityMinerals = getFacilityMinerals()
     let array = []
@@ -35,9 +35,15 @@ const FMineralList = (array) => {
 const htmlForFacilityMinerals = (array) => {
     let html = `<ul>`
     for (let item of array) {
-        html += `<li>
-        <input type="radio" name="mineralRadio" value=${item.mineralId}/>${item.quantity} of ${item.mineralName}
-        </li > `
+        if (item.mineralId === transientState.selectedMineral) {
+            html += `<li>
+            <input type="radio" name="mineralRadio" checked value=${item.mineralId}/>${item.quantity} of ${item.mineralName}
+            </li > `
+            } else { html += ` <input type="radio" name="mineralRadio" value=${item.mineralId}/>${item.quantity} of ${item.mineralName}` }
+    
+        
+        
+
     }
     html += `</ul > `
     return html
