@@ -167,6 +167,13 @@ select {
 }
 
 
+
+
+.facilityMineralBox ul {
+    color: white;
+
+}
+
 .cartBox li {
     color: white;
     list-style-type: none;
