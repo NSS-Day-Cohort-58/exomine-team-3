@@ -149,6 +149,12 @@ select {
     /* border: 2px solid orange; */
 }
 
+.cartBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
 
 
 #cart-title {
@@ -163,6 +169,7 @@ select {
 .cartBox li {
     color: white;
     list-style-type: none;
+    margin-bottom: 1rem;
 }
 
 
