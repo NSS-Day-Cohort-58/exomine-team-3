@@ -93,6 +93,9 @@ li {
 .govBox {
     display: flex;
     justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    padding: 1rem;
     color: white;
 
 }
@@ -100,6 +103,9 @@ li {
 .facBox {
     display: flex;
     justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    padding: 1rem;
     color: white;
 }
 
@@ -143,9 +149,13 @@ select {
     /* border: 2px solid orange; */
 }
 
+
+
 #cart-title {
     text-align: center;
 }
+
+
 
 /* 
 =========================
