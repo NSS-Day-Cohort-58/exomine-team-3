@@ -380,24 +380,34 @@ export const setMineral = (mineralId) => {
 */
 export const purchaseMineral = () => {
     let colonyMinerals = getColonyMinerals()
-    const newOrder = { ...database.transientState }
+    const newOrder = {}
 
     const lastIndex = database.colonyMinerals.length - 1
     newOrder.id = database.colonyMinerals[lastIndex].id + 1
 
-    newOrder.colonyId = database.transientState.colonyId
-    newOrder.mineralId = database.transientState.mineralId
+    newOrder.colonyId = database.transientState.selectedColony
+    newOrder.mineralId = database.transientState.selectedMineral
 
-    for (let colonyMineral of colonyMinerals) {
-        if (newOrder.colonyId === colonyMineral.colonyId) {
-            colonyMineral.quantity++
-        } else {
-            newOrder.quantity = 1
-            database.colonyMinerals.push(newOrder)
 
+    const foundCM = colonyMinerals.find(
+        (colonyMineral) => {
+            return newOrder.colonyId === colonyMineral.colonyId && newOrder.mineralId === colonyMineral.mineralId
         }
+    )
+
+    if (foundCM !== undefined) {
+        foundCM.quantity++
+    } else {
+        newOrder.quantity = 1
+        colonyMinerals.push(newOrder)
     }
 
+
+    setColonyMinerals(colonyMinerals)
+}
+
+const setColonyMinerals = (CMplaceholder) => {
+    database.colonyMinerals = CMplaceholder
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
