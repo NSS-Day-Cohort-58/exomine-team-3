@@ -1,4 +1,4 @@
-import { getFacilities, setFacility, getCurrentTransientState} from './database.js';
+import { getFacilities, getCurrentTransientState} from './database.js';
 
 let transientState = getCurrentTransientState()
 

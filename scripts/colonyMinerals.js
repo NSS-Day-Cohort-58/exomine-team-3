@@ -1,4 +1,4 @@
-import { getColonyMinerals, getGovernors, setGovernor } from "./database.js"
+import { getColonyMinerals, setGovernor } from "./database.js"
 import { getMinerals } from "./database.js"
 
 document.addEventListener("change", (event) => {

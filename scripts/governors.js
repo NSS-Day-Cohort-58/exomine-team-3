@@ -1,5 +1,5 @@
 
-import { getGovernors, setGovernor } from "./database.js"
+import { getGovernors } from "./database.js"
 import { getCurrentTransientState } from "./database.js"
 
 
