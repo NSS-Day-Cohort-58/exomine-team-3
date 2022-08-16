@@ -1,6 +1,5 @@
 const database = {
     transientState: {},
-    orders: {},
     governors: [
         {
             id: 1,
@@ -380,29 +379,48 @@ export const setMineral = (mineralId) => {
 */
 export const purchaseMineral = () => {
     let colonyMinerals = getColonyMinerals()
-    const newOrder = {}
+    let facilityMinerals = getFacilityMinerals()
+    const FMorder = {}
+
+    FMorder.facilityId = database.transientState.selectedFacility
+    FMorder.mineralId = database.transientState.selectedMineral
+
+    const foundFM = facilityMinerals.find(
+        (facilityMineral) => {
+            return FMorder.facilityId === facilityMineral.facilityId && FMorder.mineralId === facilityMineral.mineralId
+        }
+    )
+
+    if (foundFM.quantity >= 1) {
+        foundFM.quantity--
+    } else {
+        foundFM.quantity = 0
+    }
+
+
+    const CMorder = {}
 
     const lastIndex = database.colonyMinerals.length - 1
-    newOrder.id = database.colonyMinerals[lastIndex].id + 1
+    CMorder.id = database.colonyMinerals[lastIndex].id + 1
 
-    newOrder.colonyId = database.transientState.selectedColony
-    newOrder.mineralId = database.transientState.selectedMineral
+    CMorder.colonyId = database.transientState.selectedColony
+    CMorder.mineralId = database.transientState.selectedMineral
 
 
     const foundCM = colonyMinerals.find(
         (colonyMineral) => {
-            return newOrder.colonyId === colonyMineral.colonyId && newOrder.mineralId === colonyMineral.mineralId
+            return CMorder.colonyId === colonyMineral.colonyId && CMorder.mineralId === colonyMineral.mineralId
         }
     )
 
     if (foundCM !== undefined) {
         foundCM.quantity++
     } else {
-        newOrder.quantity = 1
-        colonyMinerals.push(newOrder)
+        CMorder.quantity = 1
+        colonyMinerals.push(CMorder)
     }
 
-
+    setFacilityMinerals(facilityMinerals)
     setColonyMinerals(colonyMinerals)
 }
 
@@ -410,6 +428,12 @@ const setColonyMinerals = (CMplaceholder) => {
     database.colonyMinerals = CMplaceholder
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+const setFacilityMinerals = (FMplaceholder) => {
+    database.facilityMinerals = FMplaceholder
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+
 
 /* 
 ====================
