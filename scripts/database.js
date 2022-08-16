@@ -350,17 +350,6 @@ export const setColony = (colonyId) => {
 }
 
 
-export const setColonyId = (id) => {
-    let colonyId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-}
-
-export const setFacilityId = (id) => {
-    let facilityId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-}
-
-
 export const setGovernor = (governorId) => {
     database.transientState.selectedGovernor = governorId
     document.dispatchEvent(new CustomEvent("stateChanged"))
@@ -393,35 +382,33 @@ export const purchaseMineral = () => {
 
     if (foundFM.quantity >= 1) {
         foundFM.quantity--
+        const CMorder = {}
+    
+        const lastIndex = database.colonyMinerals.length - 1
+        CMorder.id = database.colonyMinerals[lastIndex].id + 1
+    
+        CMorder.colonyId = database.transientState.selectedColony
+        CMorder.mineralId = database.transientState.selectedMineral
+    
+    
+        const foundCM = colonyMinerals.find(
+            (colonyMineral) => {
+                return CMorder.colonyId === colonyMineral.colonyId && CMorder.mineralId === colonyMineral.mineralId
+            }
+        )
+    
+        if (foundCM !== undefined) {
+            foundCM.quantity++
+        } else {
+            CMorder.quantity = 1
+            colonyMinerals.push(CMorder)
+        }
+    
+        setFacilityMinerals(facilityMinerals)
+        setColonyMinerals(colonyMinerals)
     } else {
         foundFM.quantity = 0
     }
-
-
-    const CMorder = {}
-
-    const lastIndex = database.colonyMinerals.length - 1
-    CMorder.id = database.colonyMinerals[lastIndex].id + 1
-
-    CMorder.colonyId = database.transientState.selectedColony
-    CMorder.mineralId = database.transientState.selectedMineral
-
-
-    const foundCM = colonyMinerals.find(
-        (colonyMineral) => {
-            return CMorder.colonyId === colonyMineral.colonyId && CMorder.mineralId === colonyMineral.mineralId
-        }
-    )
-
-    if (foundCM !== undefined) {
-        foundCM.quantity++
-    } else {
-        CMorder.quantity = 1
-        colonyMinerals.push(CMorder)
-    }
-
-    setFacilityMinerals(facilityMinerals)
-    setColonyMinerals(colonyMinerals)
 }
 
 const setColonyMinerals = (CMplaceholder) => {
